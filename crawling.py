@@ -118,7 +118,7 @@ def index():
         # except:
         #     return jsonify({"keyword": ""})
     except:
-        return jsonify({"keyword": ""})
+        return jsonify({"keyword": sys.exc_info()})
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
