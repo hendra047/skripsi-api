@@ -33,7 +33,7 @@ def index():
         #     'api_key': 'f44ba1c22c640b77c37c48bb0fecb64473566280c3287583aeb77d68bca5b8ae'
         # }
         
-        output = None
+        output = ''
         while idx < total_api_key:
             params = {
                 'q': data,
@@ -138,17 +138,17 @@ def index():
                             if (search_keyword != None):
                                 keyword = re.sub('(k\*?e\s*?y\s*?w\s*?o\s*?r\s*?d\s*?s?)|(k\s*?a\s*?t\s*?a\s*?k\s*?u\s*?n\s*?c\s*?i\s*?)|(:)|(")|(\[)|(\])|(\n)|(\')|(\.)|(—)', '',search_keyword.group(0))
                                 if (not re.match(r'^(k\*?e\s*?y\s*?w\s*?o\s*?r\s*?d\s*?s?)|(k\s*?a\s*?t\s*?a\s*?k\s*?u\s*?n\s*?c\s*?i\s*?)$', keyword)):
-                                    return jsonify({"keyword": keyword})
                                     output = keyword
                                     break
                                     # return jsonify({"keyword": keyword})
+                        break
                 except:
-                    output = None
+                    output = ''
                     # return jsonify({"keyword": None})
                     # return jsonify({"keyword": sys.exc_info()})
                 break
             else:
-                output = None
+                output = ''
                 # return jsonify({"keyword": None})
             break
             
@@ -158,7 +158,7 @@ def index():
             
         return jsonify({"keyword": output})
     except:
-        return jsonify({"keyword": None})
+        return jsonify({"keyword": ''})
         # return jsonify({"keyword": sys.exc_info()})
 
 if __name__ == '__main__':
