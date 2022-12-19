@@ -23,7 +23,7 @@ def index():
             'q': data,
             'engine': 'google_scholar',
             'type': 'search',
-            'api_key': 'eaf361a49d27a8ab33e007aa1cff478e1c86a2ee5c87d5596b91ef360d2876a0'
+            'api_key': 'f44ba1c22c640b77c37c48bb0fecb64473566280c3287583aeb77d68bca5b8ae'
         }
         
         # Melakukan search ke Google Scholar
@@ -117,13 +117,13 @@ def index():
                             if (not re.match(r'^(k\*?e\s*?y\s*?w\s*?o\s*?r\s*?d\s*?s?)|(k\s*?a\s*?t\s*?a\s*?k\s*?u\s*?n\s*?c\s*?i\s*?)$', keyword)):
                                 return jsonify({"keyword": keyword})
             except:
-                # return jsonify({"keyword": ""})
-                return jsonify({"keyword": sys.exc_info()})
+                return jsonify({"keyword": None})
+                # return jsonify({"keyword": sys.exc_info()})
         else:
             return jsonify({"keyword": None})
     except:
-        # return jsonify({"keyword": ""})
-        return jsonify({"keyword": sys.exc_info()})
+        return jsonify({"keyword": None})
+        # return jsonify({"keyword": sys.exc_info()})
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
