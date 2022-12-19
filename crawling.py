@@ -52,8 +52,8 @@ def index():
                     idx += 1
                     api_key = file_api_key[idx + 1].strip("\n")
                     continue
-            
             organic_results = result['organic_results'] if 'organic_results' in result.keys() else ''
+            return jsonify({"keyword": organic_results})
             if (organic_results != ''):
                 highest_cited = -1
                 highest_link_pdf_cited = ''
