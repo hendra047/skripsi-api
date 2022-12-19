@@ -53,7 +53,7 @@ def index():
                     api_key = file_api_key[idx + 1].strip("\n")
                     continue
             organic_results = result['organic_results'] if 'organic_results' in result.keys() else ''
-            return jsonify({"keyword": organic_results})
+            
             if (organic_results != ''):
                 highest_cited = -1
                 highest_link_pdf_cited = ''
@@ -74,7 +74,7 @@ def index():
                     if ('repository' not in link and cited_by > highest_cited and link_pdf != ''):
                         highest_cited = cited_by
                         highest_link_pdf_cited = link_pdf
-
+                return jsonify({"keyword": highest_link_pdf_cited})
                 try:
                     if (highest_link_pdf_cited != ''):
                         # Menghapus "temp.pdf"
