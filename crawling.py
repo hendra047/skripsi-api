@@ -29,7 +29,6 @@ def index():
         # Melakukan search ke Google Scholar
         google_scholar = GoogleSearch(params)
         result = google_scholar.get_dict()
-        # return jsonify({"keyword": result})
         organic_results = result['organic_results'] if 'organic_results' in result.keys() else ''
         
         if (organic_results != ''):
@@ -121,7 +120,7 @@ def index():
                 # return jsonify({"keyword": ""})
                 return jsonify({"keyword": sys.exc_info()})
         else:
-            return jsonify({"keyword": ""})
+            return jsonify({"keyword": None})
     except:
         # return jsonify({"keyword": ""})
         return jsonify({"keyword": sys.exc_info()})
