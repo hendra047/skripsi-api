@@ -74,7 +74,7 @@ def index():
                     if ('repository' not in link and cited_by > highest_cited and link_pdf != ''):
                         highest_cited = cited_by
                         highest_link_pdf_cited = link_pdf
-                return jsonify({"keyword": highest_link_pdf_cited})
+                
                 try:
                     if (highest_link_pdf_cited != ''):
                         # Menghapus "temp.pdf"
@@ -138,6 +138,7 @@ def index():
                             if (search_keyword != None):
                                 keyword = re.sub('(k\*?e\s*?y\s*?w\s*?o\s*?r\s*?d\s*?s?)|(k\s*?a\s*?t\s*?a\s*?k\s*?u\s*?n\s*?c\s*?i\s*?)|(:)|(")|(\[)|(\])|(\n)|(\')|(\.)|(—)', '',search_keyword.group(0))
                                 if (not re.match(r'^(k\*?e\s*?y\s*?w\s*?o\s*?r\s*?d\s*?s?)|(k\s*?a\s*?t\s*?a\s*?k\s*?u\s*?n\s*?c\s*?i\s*?)$', keyword)):
+                                    return jsonify({"keyword": keyword})
                                     output = keyword
                                     break
                                     # return jsonify({"keyword": keyword})
