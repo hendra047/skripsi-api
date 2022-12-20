@@ -119,7 +119,7 @@ def index():
                             # Membaca ulang PDF yang telah disimpan dengan berbeda nama
                             reader = PdfReader(filename, strict=False)
                             num_pages = reader.getNumPages()
-                            
+                             
 
                         # Mencari keyword/kata kunci dari pdf
                         for i in range(0, num_pages):
