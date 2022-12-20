@@ -56,7 +56,7 @@ def index():
                     link_pdf = item['resources'][0]['link'] if 'resources' in item.keys() else ''
 
                     # Memberikan nilai awalan pada highest_cited dan highest_link_pdf_cited
-                    if (highest_cited == -1):
+                    if (highest_cited == -1 and link_pdf != ''):
                         highest_cited = 0
                         highest_link_pdf_cited = link_pdf
 
