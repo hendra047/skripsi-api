@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/crawl', methods=['POST'])
 def index():
-    return jsonify(request)
+    return jsonify({'keyword':request})
     # try:
         
     #     # Mendapatkan data dari PHP
